@@ -229,7 +229,7 @@ async function actualizarTexto({ id, nuevoTexto }) {
 
     <footer class="footer">
       <p>Desarrollado por "Iván Ortiz Santos"</p>
-      <p>Código disponible en <a href="#"><i class="fab fa-github"></i> GitHub</a></p>
+      <p>Código disponible en <a href="https://github.com/IvanOrtz/Proyecto-RecordatoriosVue.git"><i class="fab fa-github"></i> GitHub</a></p>
     </footer>
   </div>
 </template>

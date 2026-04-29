@@ -54,8 +54,7 @@ const formatearFecha = (fecha) => {
      :href="recordatorio.archivo" 
      target="_blank" 
      class="attachment-link"
-     title="Ver archivo adjunto"
-     @click.stop> <i class="fas fa-paperclip"></i>
+     title="Ver archivo adjunto"> <i class="fas fa-paperclip"></i>
   </a>
       </div>
       <input 

@@ -11,7 +11,7 @@ import {
 import { supabase } from '../supabase.js'; 
 
 const props = defineProps({
-  user: { type: Object, default: () => ({ nombre: "", id: "" }) }
+  user: {}
 });
 
 const router = useRouter();
@@ -63,7 +63,7 @@ async function subirArchivo(nombreFinal) {
   }
  const { data: link } = supabase.storage
     .from('Recordatorios')
-    .getPublicUrl(nombreFinal); 
+    .getPublicUrl(nombreFinal); //Para guardar la url publica en vez del nombre en la bd
 
   return link.publicUrl; // Esto devuelve el string "https://..."
 

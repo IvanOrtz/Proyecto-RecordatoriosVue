@@ -31,7 +31,6 @@ async function iniciarSesionEmail() {
     router.push('/recordatorios');
   } 
   catch (error) { 
-    // Traducción rápida del error que recibías antes
     if (error.code === 'auth/invalid-credential') {
       mensaje.value = "Correo o contraseña incorrectos.";
     } else {

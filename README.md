@@ -1,1 +1,1 @@
-https://recordatoriosvue-c4271.web.app/recordatorios
+https://recordatoriosvue-c4271.web.app

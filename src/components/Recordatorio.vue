@@ -1,5 +1,5 @@
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, onMounted } from 'vue';
 
 const props = defineProps({ recordatorio: {} });
 
@@ -9,6 +9,15 @@ const emit = defineEmits(['toggle-completado', 'eliminar', 'cambiar-prioridad', 
 const editando = ref(false);
 const textoEditado = ref(props.recordatorio.texto);
 const inputRef = ref(null);
+let nombreReal = "";
+
+
+//Para coger el nombre del archivo para descargarlo
+onMounted(() => {
+  const urlLimpia = props.recordatorio.archivo.split('?')[0];
+  const nombreCodificado = urlLimpia.split('/').pop();
+  nombreReal = decodeURIComponent(nombreCodificado);
+})
 
 // Activa el modo edición
 const habilitarEdicion = async () => {
@@ -51,7 +60,7 @@ const formatearFecha = (fecha) => {
       <div v-if="!editando" class="main-text" @dblclick="habilitarEdicion">
         {{ recordatorio.texto }}
         <a v-if="recordatorio.archivo" 
-     :href="recordatorio.archivo" 
+     :href="`${recordatorio.archivo}?download=${nombreReal}`"
      target="_blank" 
      class="attachment-link"
      title="Ver archivo adjunto"> <i class="fas fa-paperclip"></i>

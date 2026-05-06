@@ -14,10 +14,12 @@ let nombreReal = "";
 
 //Para coger el nombre del archivo para descargarlo
 onMounted(() => {
-  const urlLimpia = props.recordatorio.archivo.split('?')[0];
-  const nombreCodificado = urlLimpia.split('/').pop();
-  nombreReal = decodeURIComponent(nombreCodificado);
-})
+  if (props.recordatorio.archivo) {
+    const urlLimpia = props.recordatorio.archivo.split('?')[0];
+    const nombreCodificado = urlLimpia.split('/').pop();
+    nombreReal = decodeURIComponent(nombreCodificado);
+  }
+});
 
 // Activa el modo edición
 const habilitarEdicion = async () => {

@@ -33,6 +33,7 @@ onAuthStateChanged(auth, (user) => {
 </template>
 
 <style scoped>
+/* 1. Reset global para que los paddings no sumen ancho */
 *,
 *::before,
 *::after {
@@ -41,19 +42,28 @@ onAuthStateChanged(auth, (user) => {
   padding: 0;
 }
 
+/* 2. Ajuste para pantallas curvas y evitar scroll lateral */
 html, body {
   width: 100%;
   overflow-x: hidden;
+  /* El color de fondo aquí evita destellos blancos al cargar */
+  background-color: #1a1a1a; 
 }
+
 body {
   margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Esto evita el scroll horizontal "fantasma" */
+  /* 'viewport-fit=cover' en el HTML junto con esto 
+     hace que el contenido respete los bordes curvos */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  
+  min-height: 100dvh; /* Altura dinámica para móviles */
   position: relative;
-  background-color: #1a1a1a
 }
+
 #app {
   width: 100%;
   overflow-x: hidden;
-}</style>
+}
+</style>
